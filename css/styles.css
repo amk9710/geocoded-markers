@@ -1,87 +1,89 @@
 html,
 head,
 body,
-
 #main-container {
-  height: 100%;
-  width: 100%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 #main-container {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 nav {
-  padding: 1rem;
-  border-bottom: 1px solid #000;
-  display: flex;
+    padding: 1rem;
+    border-bottom: 1px solid #000;
+    display: flex;
 }
 
 .nav-links {
-  flex-grow: 1;
-  justify-content: end;
-  display: flex;
+    flex-grow: 1;
+    justify-content: end;
+    display: flex;
 }
 
 .nav-link {
-  display: inline-block;
-  font-size: .9rem;
+    display: inline-block;
+    font-size: .9rem;
 }
 
 #content-container {
-  flex-grow: 1;
-  display: flex;
-  min-height: 0;
+    flex-grow: 1;
+    display: flex;
+    min-height: 0;
 }
 
 #sidebar {
-  width: 348px;
-  padding: 1rem;
-  font-size: 0.9rem;
-  overflow-y: scroll;
-  box-sizing: border-box;
+    width: 348px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    overflow-y: scroll;
+    box-sizing: border-box;
 }
 
 #map {
-  height: 100%;
-  flex-grow: 1;
+    height: 100%;
+    flex-grow: 1;
+    position: relative;
 }
 
 .title {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 @media only screen and (max-width: 800px) {
-  #content-container {
-    flex-direction: column-reverse;
-  }
+    #content-container {
+        flex-direction: column-reverse;
+    }
 
-  #map {
-    height: 60%;
-    flex-shrink: 0;
-  }
+    #map {
+        height: 60%;
+        flex-shrink: 0;
+    }
 
-  #sidebar {
-    width: 100%;
-  }
+    #sidebar {
+        width: 100%;
+    }
 }
 
 #map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 200px; /* or the same width as your sidebar */
-  right: 0;
-  width: auto;
-  margin-left: 200px; /* or the same width as your sidebar */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 200px;
+    /* or the same width as your sidebar */
+    right: 0;
+    width: auto;
+    margin-left: 200px;
+    /* or the same width as your sidebar */
 }
 
 #geocoder {
@@ -94,7 +96,18 @@ nav {
 
 #marker-button {
     position: absolute;
-    top: 150px;
+    top: 200px;
     left: 10px;
     z-index: 1;
+    background-color: #4285F4;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#marker-button:hover {
+    background-color: #3367D6;
 }

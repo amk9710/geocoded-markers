@@ -17,7 +17,9 @@ $(document).ready(function () {
     });
 
     // Add the geocoder to the map
-    map.addControl(geocoder);
+    
+    $('#sidebar').append(geocoder.onAdd(map));
+
 
     const markers = [];
 
