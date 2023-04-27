@@ -96,7 +96,7 @@ nav {
 
 #marker-button {
     position: absolute;
-    top: 200px;
+    bottom: 100px;
     left: 10px;
     z-index: 1;
     background-color: #4285F4;
@@ -111,3 +111,11 @@ nav {
 #marker-button:hover {
     background-color: #3367D6;
 }
+
+.popup-content {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px;
+    text-align: center;
+  }
+  

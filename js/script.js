@@ -17,37 +17,53 @@ $(document).ready(function () {
     });
 
     // Add the geocoder to the map
-    
     $('#sidebar').append(geocoder.onAdd(map));
 
-
     const markers = [];
-
 
     // When the geocoder returns a result, add a marker to the map
     geocoder.on('result', function (ev) {
         // Get the coordinates of the search result
         const lngLat = ev.result.center;
-
+    
         // Create a marker at the search result coordinates
         const marker = new mapboxgl.Marker()
             .setLngLat(lngLat)
             .addTo(map);
+    
+        // Create a new popup
+        var popup = new mapboxgl.Popup()
+            .setHTML('<h3>' + ev.result.place_name + '</h3><p>Coordinates: ' + lngLat[1] + ', ' + lngLat[0] + '</p>');
+    
+        // Bind the popup to the marker
+        marker.setPopup(popup);
+    
         // Push the marker to the array
         markers.push(marker);
     });
 
-    
-    $('#marker-button').click(function() {
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'markers', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'markers', () => {
+        map.getCanvas().style.cursor = '';
+    });
+
+    $('#marker-button').click(function () {
         // Create a bounding box that contains all markers
         const bounds = new mapboxgl.LngLatBounds();
 
         // Add each marker's coordinates to the bounding box
-        markers.forEach(function(marker) {
+        markers.forEach(function (marker) {
             bounds.extend(marker.getLngLat());
         });
 
         // Zoom the map to the bounding box
         map.fitBounds(bounds, { padding: 50 });
     });
-});
+
+
+})
