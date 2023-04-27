@@ -96,7 +96,7 @@ nav {
 
 #marker-button {
     position: absolute;
-    bottom: 100px;
+    bottom: 200px;
     left: 10px;
     z-index: 1;
     background-color: #4285F4;
@@ -112,10 +112,27 @@ nav {
     background-color: #3367D6;
 }
 
+#distance-button {
+    position: absolute;
+    bottom: 300px;
+    left: 10px;
+    z-index: 1;
+    background-color: #4285F4;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#distance-button:hover {
+    background-color: #3367D6;
+}
+
 .popup-content {
     font-size: 1.2rem;
     font-weight: 500;
     padding: 10px;
     text-align: center;
-  }
-  
+}

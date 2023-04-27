@@ -2,11 +2,10 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8' />
     <title>Custom Marker Map</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
     <link href='css/styles.css' rel='stylesheet' />
 </head>
 
@@ -24,15 +23,24 @@
             <div id="sidebar">
                 <p>Use the search bar to add markers to the map
                 <p>
+                <div id="geocoder-container">
+                    <div id="geocoder" class="geocoder"></div>
+                </div>
+                <button id="marker-button">Show All Markers</button>
             </div>
             <div id="map"></div>
-            <div id="geocoder" class="geocoder"></div>
-            <button id="marker-button">Show All Markers</button>
         </div>
     </div>
 
     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-directions/v4.2.2/mapbox-gl-directions.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' />
+    <link rel='stylesheet'
+        href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-directions/v4.2.2/mapbox-gl-directions.css' />
+
+
     <script
         src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js'></script>
     <link rel="stylesheet"
@@ -40,5 +48,4 @@
         type="text/css">
     <script src='js/script.js'></script>
 </body>
-
-</html>
+<html>

@@ -25,19 +25,19 @@ $(document).ready(function () {
     geocoder.on('result', function (ev) {
         // Get the coordinates of the search result
         const lngLat = ev.result.center;
-    
+
         // Create a marker at the search result coordinates
         const marker = new mapboxgl.Marker()
             .setLngLat(lngLat)
             .addTo(map);
-    
+
         // Create a new popup
         var popup = new mapboxgl.Popup()
             .setHTML('<h3>' + ev.result.place_name + '</h3><p>Coordinates: ' + lngLat[1] + ', ' + lngLat[0] + '</p>');
-    
+
         // Bind the popup to the marker
         marker.setPopup(popup);
-    
+
         // Push the marker to the array
         markers.push(marker);
     });
@@ -65,5 +65,26 @@ $(document).ready(function () {
         map.fitBounds(bounds, { padding: 50 });
     });
 
-
-})
+    if (markers.length == 2) {
+        // Get the origin and destination coordinates
+        var origin = markers[0].getLngLat().toArray();
+        var destination = markers[1].getLngLat().toArray();
+    
+        // Construct the request URL
+        var url = directionsEndpoint + origin[0] + ',' + origin[1] + ';' + destination[0] + ',' + destination[1] + '?steps=true&access_token=' + mapboxgl.accessToken;
+    
+        // Send the request to the Mapbox Directions API
+        $.ajax({
+          method: 'GET',
+          url: url,
+        }).done(function(data) {
+          // Get the driving distance from the response
+          var distance = data.routes[0].distance;
+    
+          // Display the driving distance on the page
+          $('#driving-distance').text(distance);
+        }).fail(function() {
+          console.log('Error getting directions');
+        });
+      }
+    });
