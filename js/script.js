@@ -30,23 +30,6 @@ $(document).ready(function() {
             .setLngLat(lngLat)
             .addTo(map);
 
-        // Remove the geocoder from the map
-        map.removeControl(geocoder);
-
-        // Prompt the user for a new address
-        const newAddress = prompt('Enter a new address:');
-
-        // If the user entered a new address, add a geocoder for it
-        if (newAddress) {
-            const newGeocoder = new MapboxGeocoder({
-                accessToken: mapboxgl.accessToken,
-                mapboxgl: mapboxgl,
-                marker: false,
-                placeholder: 'Search for an address',
-                countries: 'us'
-            });
-            map.addControl(newGeocoder, 'top-left');
-            newGeocoder.query(newAddress);
-        }
+      
     });
 });
